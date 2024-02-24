@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Countries {
 	
@@ -16,7 +18,8 @@ public class Countries {
 	private Long id;
 	private String name;
 	private String code;
-	  
+	
+	@JsonIgnore
     @OneToMany(mappedBy="id")
 	private Set<Freedays> freedays;		  
 	  

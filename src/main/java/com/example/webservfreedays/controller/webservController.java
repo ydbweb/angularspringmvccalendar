@@ -23,31 +23,31 @@ public class webservController {
 	@Autowired
 	CountriesService cntserv;
 	
-	@CrossOrigin(origins = "https://ydbweb.com")
+	@CrossOrigin(origins = "*")
 	@GetMapping("/countries")
 	public List<Countries> getCountries() {
 		return cntserv.getCountries();
 	}
 	
-	@CrossOrigin(origins = "https://ydbweb.com")
+	@CrossOrigin(origins = "*")
 	@GetMapping("/months")
 	public List<Months> getMonths(@RequestParam String country_id,@RequestParam String year) {
 		return cntserv.getMonths(country_id,year);
 	}	
 	
-	@CrossOrigin(origins = "https://ydbweb.com")
+	@CrossOrigin(origins = "*")
 	@GetMapping("/years")
 	public List<String> getYears() {
 		return cntserv.getYears();
 	}	
 	
-	@CrossOrigin(origins = "https://ydbweb.com")
+	@CrossOrigin(origins = "*")
 	@GetMapping("/daysofmonth")
 	public List<Daysofmonth> getDaysofmonth(@RequestParam String month, @RequestParam String year,@RequestParam String country_id) throws Exception {
 		return cntserv.getDaysofmonth(month,year,country_id);
 	}	
 	
-	@CrossOrigin(origins = "https://ydbweb.com")
+	@CrossOrigin(origins = "*")
 	@GetMapping("/freedaysyear")
 	public List<Daysofmonth> getFreedaysYear(@RequestParam String year,@RequestParam String country_id) throws Exception {
 		return cntserv.getFreedaysYear(country_id,year);

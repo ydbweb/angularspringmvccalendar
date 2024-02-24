@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,8 +22,8 @@ public class Freedays {
 	private String freename;	
 	private Date freedate;
 	  
-    @ManyToOne
-    @JoinColumn(name="country_id", nullable=false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="country_id")
     private Countries cntry;	  
 	  
 	  

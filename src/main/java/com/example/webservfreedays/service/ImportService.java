@@ -190,28 +190,34 @@ public class ImportService {
     
     public List<String> importeaster() throws FileNotFoundException, IOException{    
 	    List<String> records = new ArrayList<>();
-	    try (BufferedReader br = new BufferedReader(new FileReader(Paths.get("/home/geronimo/data/pasen2.csv").toString()))) {
+	    try (BufferedReader br = new BufferedReader(new FileReader(Paths.get("C:/projects/easter.csv").toString()))) {
 
 	        String line;
 	        Integer i=0;
 	        while ((line = br.readLine()) != null) {
 	        	String date = line.replace("\"", "");
 	        	String finaldate="";
+	        	
+	        	String year=line;
+	        	
+	        	date = br.readLine();
+	        	
+	        	
 
 	        	String[] parts = date.split(" ");
-	        	if (parts[0].contains("April")) {
-	        		finaldate=parts[2]+"-04-"+parts[1].replace(",", "")+" 00:00:01";
+	        	if (date.contains("April")) {
+	        		finaldate=year+"-04-"+parts[1].replace(" ", "")+" 00:00:01";
 	        	}else {
-	        		finaldate=parts[2]+"-03-"+parts[1].replace(",", "")+" 00:00:01";
+	        		finaldate=year+"-03-"+parts[1].replace(" ", "")+" 00:00:01";
 	        	}	        	
 	        	
 	        	try {
 	            //String[] values = line.split(COMMA_DELIMITER);
 	       		//LocalDate date = LocalDate.parse(line);
-	            System.out.println(finaldate);
-	            System.out.println(line);
+	            System.out.println(finaldate.replace(",", ""));
+	            //System.out.println(line);
 	            //System.out.println(date);
-	            records.add(finaldate);
+	            records.add(finaldate.replace(",", ""));
 	        	}catch (Exception e) {
 	        		//System.out.println("Exception ocuured for index "+i+" and exception is "+e.getMessage());	        	
 	        	}
